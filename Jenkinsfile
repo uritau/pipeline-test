@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    pipeline {
+        triggers {
+            issueCommentTrigger('.*test this.*')
+        }
+    }
     stages {
         stage('Build') {
             steps {
