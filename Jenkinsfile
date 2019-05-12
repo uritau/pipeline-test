@@ -7,7 +7,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                pullRequest.comment( 'Building again because stuff')
+                script {
+                    pullRequest.comment( 'Building again because stuff')
+                }
             }
         }
         stage('Test') {
