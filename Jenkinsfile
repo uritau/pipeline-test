@@ -14,7 +14,7 @@ pipeline {
                             "\"${triggerCause.comment}\", which matches the " +
                             "\"${triggerCause.triggerPattern}\" trigger pattern.")
                     }
-                    echo 'this is the triggerCause -> ${triggerCause} end'
+                    echo 'this is the triggerCause -> ' + ${triggerCause} + ' end'
                     pullRequest.comment( 'Building again because stuff')
                 }
             }
