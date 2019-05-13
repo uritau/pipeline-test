@@ -10,12 +10,13 @@ pipeline {
                 script {
                     def triggerCause = currentBuild.rawBuild.getCause(org.jenkinsci.plugins.pipeline.github.trigger.IssueCommentCause)
                     if (triggerCause) {
-                        echo("${triggerCause.userLogin} wrote : " +
-                            "\"${triggerCause.comment}\", which matches the " +
-                            "\"${triggerCause.triggerPattern}\" trigger pattern.")
+                        echo("Hello! I am the CI, I haveve triggered a new build because " +
+                        "\"${triggerCause.userLogin} wrote: " +
+                        "\"> ${triggerCause.comment}\" +
+                        "\", you can find the build [here](${currentBuild.absoluteUrl}).")
                     }
                     echo ("this is the triggerCause -> " +
-                     "\"${triggerCause}\" end")
+                    "\"${triggerCause}\" end")
                     pullRequest.comment( 'Building again because stuff')
                 }
             }
