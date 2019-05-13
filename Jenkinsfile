@@ -12,6 +12,7 @@ pipeline {
                     if (triggerCause) {
                         echo("Hello! I am the CI, I haveve triggered a new build because " +
                         "\"${triggerCause.userLogin} wrote: " +
+                        "\"> ${triggerCause.comment}" +
                         "\", you can find the build [here](${currentBuild.absoluteUrl}).")
                     }
                     echo ("this is the triggerCause -> " +
