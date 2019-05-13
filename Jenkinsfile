@@ -10,7 +10,7 @@ pipeline {
                 script {
                     def triggerCause = currentBuild.rawBuild.getCause(org.jenkinsci.plugins.pipeline.github.trigger.IssueCommentCause)
                     if (triggerCause) {
-                        echo("Who wrote: " +
+                        echo("${triggerCause.userLogin} wrote : " +
                             "\"${triggerCause.comment}\", which matches the " +
                             "\"${triggerCause.triggerPattern}\" trigger pattern.")
                     }
